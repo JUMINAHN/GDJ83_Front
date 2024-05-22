@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="c"> <!--동일하게 3개_class를 전부 다 가져오는 방법은 class-->
+    <input type="text" class="c">
+    <input type="text" class="c">
+    <button id = "btn" onclick = "info()">CLICK</button>
+    
+    <script>
+        //3개 입력하고 클릭하고 각각 입력한 것 콘솔창 출력 --> 각각 id가 있어야 함
+        //input에 있는 걸 가지고 와서 출력, 2번째, 3번째거도 --> 같은거 반복
+        const btn = document.getElementById("btn"); 
+        btn.value; //element
+        const c = document.getElementsByClassName("c"); //클래스명을 기반으로 element 가져오기 (전체 C 가져옴, 즉 배열)
+        //변수에는 하나의 값만 담을 수 있음 --> 유사 배열 : 하나씩 꺼낼 수 있음
+        //배열은 value가 없다 -> 배열에서 하나꺼내야 엘리먼트가 나온다.
+        
+        function info() {
+            for(let i=0; i < c.length; i++) {
+            console.log(c[i].value); 
+            }
+        }
+
+
+    </script>
+</body>
+</html>

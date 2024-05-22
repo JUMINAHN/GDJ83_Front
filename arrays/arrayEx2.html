@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="./images/1.jpeg" alt="" id="img">
+    </div>
+    <button onclick="on()">Next</button>
+
+
+    <script>
+
+        //next버튼을 클릭하면 다음 친구가 나오면 됨 --> 이제는 안에서 꺼내서 감 --> 다음 누르면 마지막 창으로 첫번째 이미지 보여주기
+        let ar = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg"]; //배열
+        const img = document.getElementById("img");
+
+        let i = 0;
+        function on() {
+            //img.src = "./images/" + ar[1]; --> 이게 떠야 함
+        i++;
+        if(i >= 5) {
+            alert("마지막 이미지 입니다.")
+            i = 0;
+        }
+        img.src = "./images/" + ar[i];
+    }
+
+    
+
+    /*
+            for(let i=0; i<5; i++) {
+            img.src = "./images/" + ar[i];
+        }
+    */
+
+    </script>
+
+</body>
+</html>

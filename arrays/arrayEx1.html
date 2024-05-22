@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" value ="1" name = "ch" id="checkAll"> <!--name, class, id 이름 같아도됨 다른아이디랑 중복만 안되면 됨-->
+    <input type="checkbox" value ="2" name = "ch" class="box" checked> <!--얘네들의 value값을 출력해라-->
+    <input type="checkbox" value ="3" name = "ch" class="box">
+    <input type="checkbox" value = "4" name = "ch" class="box">
+    <button onclick="on()">CLICK</button>
+    <script>
+        //element들의 checked 속성
+        //check된 것 클릭하면 -> check된 곳을 출력하세요 --> checked의 속성을 가져오라
+        const check = document.getElementsByClassName("box");
+        function on() {
+            for (let i=0; i< check.length; i++) {
+            console.log(check[i].checked);
+            }
+        }
+        //check[1].checked = false;
+
+        //check하면 쫙 들어오는거 구현 --> 첫번째 박스 체크하고 클릭 누르면 나머지도 체크 --> 첫번쨰 누르면 모두 아니면 해제
+
+
+    </script>
+</body>
+</html>

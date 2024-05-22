@@ -11,7 +11,7 @@
         //여러가지 데이터 타입이 겹쳐도 상관없다 -> 자바와 다르네
         let ar1 = new Array(); //사용 비추천
         let ar2 = [];
-        let ar3 = [1, 2, 3, 4, 5];
+        let ar3 = [1, 8, 3, 6, 5];
         console.log(ar1.length); 
         console.log(ar2.length);
         console.log(ar3.length);
@@ -24,10 +24,21 @@
         j = 100; //2를 100으로 let i만 바뀌는 것 ****
         console.log(ar3[1]) //ar3[1] --> 2
 
+        ar3.push('a'); //배열에 새로운 것 추가하는 것
+        ar3.pop(); //마지막 요소 삭제
+        ar3.shift();
+        //배열 제일 처음 요소를 삭제 shift
+        //배열 제일 첫번째에 추가하고 새로운 길이 반환 unshift
+        ar3.unshift('first');
+        ar3.sort(); //오름차순 정렬
+        ar3.reverse(); //순서변경
+
+        //Q. 배열의 길이가 바뀔 수 있나?? 
 
         for(let i=0; i<ar3.length; i++) {
             console.log("value = " + ar3[i]);
         }
+
 
 
 
