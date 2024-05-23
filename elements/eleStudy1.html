@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="info"> <!--뭔가를 입력하고-->
+    <button id="btn">Add</button> <!--add누르면-->
+    <ul id="result"></ul> <!--list태그를 만들면서 추가를 한거 --> 
+    <div id="result2">
+        <!-- <div>
+            <input type="file"> 
+            <span>X</span>만들고 싶어
+        </div> -->
+    </div>
+    <button id="btn2"></button>
+
+    <script>
+        //innerhtml = 삭제하고 새로 넣기 즉 기존꺼 덮어씌우고
+        //기존꺼 유지하고 밑에 추가하는 것
+        //element 추가 or 삭제 --> element 추가/삭제
+
+        const info = document.getElementById("info");
+        const btn = document.getElementById("btn");
+        const result = document.getElementById("result");
+        
+
+        const btn2 = document.getElementById("btn2");
+        const result2 = document.getElementById("result2");
+        
+
+        btn.addEventListener("click", function(){
+            let v = info.value //info값을 ul태그 안에 li 태그
+            //result.append("<li>abc</li>") //result라는 엘리먼트 내부에 추가한다. --> 추가할 데이터 매개변수에 --> append는 문자열로 인식 *innerhtml랑 달라
+            //새로운 element 생성
+            let li = document.createElement("li"); //만든걸 반환받아야하니까. -->li태그를 만든다 <li><li>
+            //contents 생성 작업
+            let c = document.createTextNode(v); '일반문자열 -> "" 넣음 됨 '
+            //생성한 element에 text 추가
+            li.appendChild(c); //태그 옆에 콘텐츠를 넣는다. append child? --> <li>값<li>;
+            //만든걸 이제 또 ul에 집어넣어 --> 객체라 반환안해도됨
+            result.append(li);
+        })
+
+        btn2.addEventListener("click", function(){
+            //만들고싶은 태그 차례대로 천천히 
+            let d = document.createElement("div");
+            let i = document.createElement("input"); //이걸 d하위로 해야함
+            let a = document.createAttribute("type");
+            a.value ="file"; //input tage -> type가 value --> 타입이 파일
+            let s = document.createElement("span");
+
+
+            //input type은 file
+            i.setAttributeNode(a) //content --> 
+            s.setAttributeNode("X");
+
+            d.appendChild(i); //자식에 추가한다. -->span도 div아기 --> 
+            d.appendChild(s);
+            result2.append(d); //result에 d를 넣겠다.
+        })
+
+
+    </script>
+</body>
+</html>

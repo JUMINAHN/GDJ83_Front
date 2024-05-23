@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="info"> >
+    <button id="btn">Add</button> 
+    <ul id="result"></ul> 
+    <div id="result2">
+
+    </div>
+    <button id="btn2"></button>
+
+    <script>
+
+        const info = document.getElementById("info");
+        const btn = document.getElementById("btn");
+        const result = document.getElementById("result");
+        
+        const btn2 = document.getElementById("btn2");
+        const result2 = document.getElementById("result2");
+        
+        btn.addEventListener("click", function(){
+            let v = info.value 
+            let li = document.createElement("li"); 
+            let c = document.createTextNode(v); '일반문자열 -> "" 넣음 됨 '
+            li.appendChild(c); 
+            result.append(li);
+        })
+
+        btn2.addEventListener("click", function(){
+            let d = document.createElement("div");
+            d.classList.add("abc"); //div -> d -> abc를 넣는 것
+
+            let i = document.createElement("input");
+            i.name = "test";
+            i.type = "file";
+            // let a = document.createAttribute("type"); //input에 넣는거
+            // a.value ="file";  //i.type = ""로 해도 된다. --> i와 a안함
+            d.appendChild(i);
+
+            i = document.createElement("span"); //createElement로 만드는건 객체 --> 객체 타입만 매개변수로 만들 수 있다
+            //append는 객체 타입도 되고, 문자열도 된다
+            let t = document.createTextNode("X");
+            i.appendChild(t); //append는 두개 가능
+            d.appendChild(i); //append해도 상관없음 ;;
+            //
+            //append와 그 child 구분 --> 자식 노드 --> child는 문자열 드가면 에러 --> 노드객체만 가능 한번에 두개이상 추가 부락능하다.
+            result2.append(d); 
+        })
+
+
+    </script>
+</body>
+</html>

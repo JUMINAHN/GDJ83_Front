@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result1">
+    </div>
+
+        <script>
+            const ar = ['바나나', '수박', '참외', '사과', '망고'];
+            let result1 = document.getElementById("result1");
+
+            for(let i=0; i< ar.length;i++) {
+                let d = document.createElement("div");
+                let e = document.createElement("input");
+                let t = document.createTextNode(ar[i]);
+                e.type="checkbox";
+                // let t1 = document.create
+                //append가 보니까 태그를 닫는 느낌이 있음
+
+                d.append(e);
+                d.appendChild(t)
+                //e.append(t);
+                result1.append(d);
+            }
+
+
+        </script>
+
+
+</body>
+</html>
