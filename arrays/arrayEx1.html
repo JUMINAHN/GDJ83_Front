@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="checkbox" value ="1" name = "ch" id="checkAll"> <!--name, class, id 이름 같아도됨 다른아이디랑 중복만 안되면 됨-->
+    <input onclick="on()" type="checkbox" value ="1" name = "ch" id="checkAll"> <!--name, class, id 이름 같아도됨 다른아이디랑 중복만 안되면 됨-->
     <input type="checkbox" value ="2" name = "ch" class="box" checked> <!--얘네들의 value값을 출력해라-->
     <input type="checkbox" value ="3" name = "ch" class="box">
     <input type="checkbox" value = "4" name = "ch" class="box">
@@ -14,6 +14,8 @@
     <script>
         //element들의 checked 속성
         //check된 것 클릭하면 -> check된 곳을 출력하세요 --> checked의 속성을 가져오라
+        //전체 동의도 체크해제  -> 모두 체크하면 : 전체 체크가 되는 것 
+        //누가 체크된지 모르는데.. 4개 모두 검사
         const check = document.getElementsByClassName("box");
         function on() {
             for (let i=0; i< check.length; i++) {

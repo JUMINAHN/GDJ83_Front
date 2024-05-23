@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">CLICK</button>
+    <button id="btn2">CLICK</button>
+    <button id="btn3">CLICK</button>
+
+
+    <script>
+        const btn = document.getElementById("btn");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+
+        //평소에
+        function onclick( ) {
+
+        } // -> button에 태그 function을 대입
+
+
+
+        //id에 function을 대입하는ㄴ 것
+        btn.onclick = function() { //클릭했을 때 --> 버튼에 클릭 이벤트를 걸어주는 것, 뭔갈 실행해야 함 (익명 함수 사용)
+            console.log("test");
+        } 
+
+
+        //콜백함수 = 이벤트 발생했을 때 사용하는 함수
+        //btn2.onclick = go();
+        //btn2.onclick = go; //명명 함수를 사용하지 않음 -> 위에서 믿으로 내려오다 보니까 --> 함수실행으로 함수가 끝나서 반응X
+        btn2.onclick = function () {
+            go(); //이 안에서 실행하는건 괜찮음 --> 바로 호출하는 것은 안됨 ;;;
+        }
+        function go() {
+            console.log("go"); //btn 2클릭했을 때 얘가 실행되면 좋겠다.
+        }
+        
+        btn3.addEventListener("click", function(){ //주로 사용
+            console.log("btn3")
+        }); //매개변수, 함수호출(소괄호x) 및 익명함수 선언 --> 이벤트명 -> 전치사 제외하고 
+
+        function go1() {
+            console.log("go");
+        }
+
+        //익명함수 -> ~했을떄 실행하는 함수 : 콜백때문에 사용
+        //함수에서 매개변수를 받고 전달하는 것
+        //명명함수 -> 다른곳에서 또 활용할떄
+
+    </script>
+</body>
+</html>

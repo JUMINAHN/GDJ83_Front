@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width:200px;
+            height: 200px;
+            border : 2px solid red;
+        }
+        .bg {
+            background-color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id ="result"></div>
+
+    <script>
+        //div에 event를 걸려고 한다. 
+        const result = document.getElementById("result");
+
+        //result 영역에 들어왔을 때
+        result.addEventListener("mouseenter", function() {
+            result.classList.add("bg"); //bg라는 클래스 추가
+            console.log("enter");
+        }) //첫번째 매개변수의 이벤트 이름 ,익명 + 콜백함수 -> ()없이 --> 영역에 들어오면 실행, 나가면 안하는 것
+        //마우스가 들어오면 배경 레드 -> 클래스 추가 하면 됨
+        
+        result.addEventListener("mouseleave", function() {
+            result.classList.remove("bg");
+            console.log("out");
+        })
+
+
+    </script>
+</body>
+</html>

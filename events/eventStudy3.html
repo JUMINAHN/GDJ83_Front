@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<!--eventsutdy 1-2는 디자인 , 3부터 많이 쓴다.-->
+    <form action=""> <!-- form 태그 서버로 전송할 때 사용하는 것-->
+        <input type="text" id="id1" type="text">
+        <input type="text" id="id2" type="text">
+        <input type="reset" value ="RESET"> <!--reset이라는 event가 내장되어있다. --> <!--폼안에 있어야 리셋으로 사용 가능-->
+        <button type="reset">RESET</button> <!--폼안에 있어야 리셋으로 사용 가능-->
+    </form>   
+
+
+    <script>
+        const id1 = document.getElementById("id1");
+        const id2 = document.getElementById("id2");
+        id1.addEventListener("keyup", function(){ //event는 모든 엘리먼트에 적용된다.
+            //keypress -> 눌렀다 뗼때 --> 가장 많이 사용
+            console.log("keypress");
+        })
+
+        id1.addEventListener("focus", function(){
+            id1.classList.add("bg"); //Q. 바로 idf1호출 가능 ? 
+        })
+
+        id1.addEventListener("blur", function() {
+            id1.classList.remove("bg");
+        })
+
+
+        id2.addEventListener("change", function(){ //form에 관련된 요소 -> value속성 가지고 하는 것
+            console.log("값이 변경됨"); //내용이 변경되었을때만 작동하는 것
+        })
+
+
+    </script>
+</body>
+</html>

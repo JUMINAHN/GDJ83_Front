@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+    첫번째 박스 체크하고 클릭 누르면 나머지도 체크 : 첫번쨰 누르면 모두 아니면 해제
+    누가 체크되던 다 검사하고, 다 체크되면 -> 전체 체크
+    하나만 체크되면 -> 체크해제 
+    -->
+
+<body>
+    <input onclick="on()" type="checkbox" value ="1" name = "ch" id="checkAll"> 
+    <input type="checkbox" value ="2" name = "ch" class="box">
+    <input type="checkbox" value ="3" name = "ch" class="box">
+    <input type="checkbox" value = "4" name = "ch" class="box">
+    <input type="checkbox" value = "5" name = "ch" class="box">
+    <button onclick="on()">CLICK</button>
+    <script>
+        
+        const all = document.getElementById("checkAll")
+        const check = document.getElementsByClassName("box");
+
+        function on() {
+            if(all.checked) {
+                for (let i=0; i< check.length; i++) {
+                check[i].checked = true;
+            }} else {
+                for (let i=0; i< check.length; i++) {
+                check[i].checked = false;
+            }}
+        }
+
+        //test가 찍히는 것 확인 (o)
+            //checked가 4개가 되어있으면 -> all check 할게
+            //allcheck만 비어있다. = allchecked일때
+            //모두 check가 트루인지 어떻게 확인하지 /? ??? ? ? ??
+        let result;
+        for(let i =0; i<check.length;i++) {
+            check[i].addEventListener("click", function() {
+                if (check[0].checked && check[1].checked && check[2].checked && check[3].checked) {
+                //if (check[i].unchecked) { //모두 체크될 때 -> 하나만 체크가 안될 때 
+                    all.checked = true;    
+                } else {
+                    all.checked = false;
+                }
+                //console.log(check[i].checked);
+            })
+        }
+
+//        all.checked = true; //모두 검증되어서 모두 트루일 경우 반환-> 배열 다 돌아야 한다
+                
+
+            /*    
+            for(let i =0; i<check.length;i++) {
+                if(check[i].checked) {
+                    all.checked;
+                } 
+            }
+            */
+
+        
+        
+
+
+
+
+    </script>
+</body>
+</html>
