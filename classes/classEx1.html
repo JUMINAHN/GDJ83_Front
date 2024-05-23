@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c2 {
+            border: red solid 1px; 
+        }
+    </style>
+</head>
+<body>
+    <!--border가 들어가는 calss 정의하고, value ""이 null아니다. -->
+    <div>
+        <input type="text" class="c1"> <!--필수적 입력, 내용이 없으면 빨간색 테두리를 준다.-->
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <button onclick="onclick1()">CLICK</button> 
+    </div>    
+    
+    <script>
+        //text입력할수도 뺄수도, 클릭 버튼을 클릭했을 때 input요소에 값이 비어있으면 빨강색 테두리를 주자
+        //value를 가져왔을 때 value = "" 비어있는 것에 //반복문 돌려서 비교해야함
+        const c1 = document.getElementsByClassName("c1");
+
+        function onclick1() {
+            for (let i=0; i < c1.length ;i++) {
+                if(c1[i].value == "") { //border : red; -> c2 : red
+                    c1[i].classList.add("c2");
+                    //c1[i].className = "c2"; //한개씩 변경
+                }           
+        }
+    }
+
+        
+        
+
+
+    </script>
+
+</body>
+</html>

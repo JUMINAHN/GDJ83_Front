@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c2 {
+            border: red solid 1px; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="c1"> <!--input 값은 value에 저장된다. -->
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <input type="text" class="c1">
+    </div>
+    <div>
+        <button onclick="onclick1()">CLICK</button> 
+    </div>    
+    
+    <script>
+        const c1 = document.getElementsByClassName("c1"); //배열
+        function onclick1() {
+            for(let i= 0; i<c1.length ; i++) {
+                if(c1[i].value == "") {
+                    c1[i].classList.add("c2");
+                } else {
+                    c1[i].classList.remove("c2"); //색칠된 부분을 삭제하는 것까지 생각 --> 기본 요소에서 더 들어가기
+                }
+            }
+        }
+        // 입력하고 원래대로 돌아가지 않는 이유 -> html / css : 정적인 언어 --> 한 번 들어가면 바뀌지 않는다.
+        //바꾸라는 용어가 없으면 계속 그상태 유지
+  
+
+
+    </script>
+
+</body>
+</html>
