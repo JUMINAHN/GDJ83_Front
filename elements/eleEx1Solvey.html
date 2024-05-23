@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            text-decoration: line-through; /*check하면 쓰루*/
+        }
+    </style>
+</head>
+<body>
+    <div id="result1">
+    </div>
+
+        <script>
+            //append 계속 누적됨
+
+            const ar = ['바나나', '수박', '참외', '사과', '망고'];
+            const result1 = document.getElementById("result1");
+            for(let i=0; i < ar.length ; i++) {
+                //input은 contents가 없다. 자식이 없다는 것!!
+                let d = document.createElement("div");
+                let input = document.createElement("input");
+                input.type = "checkbox"; //createAttribute도 있다.
+                d.appendChild(input);
+                //append는 문자열까지 된다.
+                d.append(ar[i])//createtextnode도 가능
+                result1.append(d);
+            } 
+
+        </script>
+
+
+</body>
+</html>
