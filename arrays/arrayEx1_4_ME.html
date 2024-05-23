@@ -13,31 +13,7 @@
     <input type="checkbox" value = "5" name = "ch" class="box">
     <button onclick="on()">CLICK</button>
     <script>
-        
-        const all = document.getElementById("checkAll")
-        const check = document.getElementsByClassName("box");
 
-        let result;
-        for(let i =0; i<check.length;i++) {
-            check[i].addEventListener("click", function() {
-                if (check[0].checked && check[1].checked && check[2].checked && check[3].checked) {
-                    all.checked = true;    
-                } else {
-                    all.checked = false;
-                }
-            })
-        }
-
-        
-        function on() {
-            if(all.checked) {
-                for (let i=0; i< check.length; i++) {
-                check[i].checked = true;
-            }} else {
-                for (let i=0; i< check.length; i++) {
-                check[i].checked = false;
-            }}
-        }
     </script>
 </body>
 </html>
