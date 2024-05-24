@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="checkAll"> <!--checkAll 전체선택 : 나머지 모두 체크되는 형태 ++ 체크해제  (복습)-->
+        <button id="btn">DELETE</button> <!--check된 요소 삭제 -->
+    </div>
+
+    <div id="result1">
+        <input type="checkbox" class="flag" data-del-num="result1"> <!--이 값 가져오면 div id가 됨-->
+        <span>mail title1</span>
+    </div>
+    <div class="div" id="result2">
+        <input type="checkbox" class="flag" data-del-num="result2">
+        <span>mail title2</span>
+    </div>
+    <div class="div" id="result3">
+        <input type="checkbox" class="flag" data-del-num="result3">
+        <span>mail title3</span>
+    </div>
+    <div class="div" id="result4">
+        <input type="checkbox" class="flag" data-del-num="result4">
+        <span>mail title4</span>
+    </div>
+    <div class="div" id="result5">
+        <input type="checkbox" class="flag" data-del-num="result5">
+        <span>mail title5</span>
+    </div>
+    
+    <script>
+       const btn = document.getElementById("btn");
+       const flag = document.getElementsByClassName("flag");
+       btn.addEventListener("click", function(){ //check박스 다 검사
+
+            let ar = []
+
+
+            for(let i =0; i < flag.length; i++) {
+                if(flag[i].checked) {
+                    //document.getElementById(flag[i]+getAttribute("data-del-num")).remove();
+                    ar.push(flag[i].getAttribute("data-del-num"));//맨끝에 --> 지우지 않고 배열에 집어 넣는 것
+                    //result 값을 집어 넣는 것
+                }
+            } 
+
+            //mail 지울때 유용; ;
+            for (let i=0;i<ar.length;i++) {
+                document.getElementById(ar[i]).remove();
+            }
+
+       })
+
+    </script>
+</body>
+</html>

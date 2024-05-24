@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--remove 자기, removechild 자기 자식-->
+    <!--click하면 해당 요소들이 지워지는 것 : div자체를 지우고 싶은 것-->
+    <!--상수값을 보고 데이터타입이 뭔지 알 수 있어야함-->
+    <div class="c1" id="result1">
+        <h3>1</h3>
+        <button class="btns" id="1" data-del-num="1">CLICK</button> <!--button마다 클릭 이벤트를 주는 것 : 버튼 반복 -->
+        <!--데이터가 필요할 떄 사용자가 만드는 속성이 있음 : data-* (*는 내가 만드는 것: 없는 속성을 새로 만드는 것)-->
+        <!--없는 속성을 만들어주는 것도 가끔 필요-->
+        <!--id 1, 2주는 것은 개발자스럽지 않아 data-*(2개도 가능) 로 만들어준다, id 속성이 중요하기 때문에-->
+    </div>
+    <div class="c1" id="result2">
+        <h3>2</h3>
+        <button class="btns" id="2" data-del-num="2">CLICK</button> <!--패턴을 찾아야함, 바뀌는 것 찾기 && 상수(리터럴)와 변수로 이루어져있음을 인지-->
+    </div>
+    <div class="c1" id="result3">
+        <h3>3</h3>
+        <button class="btns" id="3" data-del-num="3">CLICK</button>
+    </div>
+    <div class="c1" id="result4">
+        <h3>4</h3>
+        <button class="btns" id="4" data-del-num="4">CLICK</button>
+    </div>
+
+
+    <script>
+        const btns = document.getElementsByClassName("btns"); 
+        const c1 = document.getElementsByClassName("c1");
+        for(let i=0; i<btns.length;i++) {
+            btns[i].addEventListener("click", function() {
+                //console.log(this.data-del-num); //this.속성명 --> 이거는 속성명으로 사용이 불가능함(내가 만든 것) ******특이점***
+                //console.log(this.getAttribute("data-del-num"));
+
+                //console.log(this.id);
+                document.getElementById("result" + this.getAttribute("data-del-num")).remove() //id를 가져와서 쓰는 것 ******최종 도출과정 고민하고, 생각하는 패턴을 만들 것
+
+            })
+        }
+        
+
+
+
+    </script>
+</body>
+</html>

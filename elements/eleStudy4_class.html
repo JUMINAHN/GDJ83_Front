@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--remove 자기, removechild 자기 자식-->
+    <!--click하면 해당 요소들이 지워지는 것 : div자체를 지우고 싶은 것-->
+    <div class="c1">
+        <h3>1</h3>
+        <button>CLICK</button>
+    </div>
+    <div class="c1">
+        <h3>2</h3>
+        <button>CLICK</button> <!--2번만 안지워짐-->
+    </div>
+    <div class="c1">
+        <h3>3</h3>
+        <button>CLICK</button>
+    </div>
+    <div class="c1">
+        <h3>4</h3>
+        <button>CLICK</button>
+    </div>
+
+
+    <script>
+        //div선택 -> div id를 넣음, 근데 다 써야하니까 div class로 배열0번째를 지우는것?
+        const c1 = document.getElementsByClassName("c1");
+        for(let i=0;i<c1.length;i++) {
+            c1[i].addEventListener("click", function() {
+            c1[i].remove();
+        })
+        }
+    
+
+        
+        
+
+
+
+    </script>
+</body>
+</html>

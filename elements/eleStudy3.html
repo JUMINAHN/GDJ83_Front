@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c1 {
+            width: 200px;
+            height : 200px;
+        }
+
+        .bg_red {
+            background-color: red;
+        }
+
+        .bg_blue {
+            background-color: blue; /*background color가 있지만 img때문에 안먹는것이다.*/
+        }
+    </style>
+
+</head>
+<body>
+    <div id="del1" class="c1 bg_red">
+        <input type="text">
+    </div>
+
+    <div id="del2" class="c1 bg_blue">
+        <img id = "result" src="/arrays/images/1.jpeg" alt="">
+    </div>
+
+    <script>
+        const del1 = document.getElementById("del1");
+        const del2 = document.getElementById("del2"); //선언해서 계속 반복적으로 쓸려고 할때 = 변수에 담아둔다.
+        del1.addEventListener("click", function() {
+            console.log("del1"); //이벤트 작동 확인 --> del1클릭하면 지우기 : 엘리먼트
+            //삭제는 간단 -> 선택자.remove() : 자식엘리먼트까지 삭제하겠다. --> div전체를 지우고 싶은 것
+            del1.remove(); 
+        })
+
+        del2.addEventListener("click", function(){
+            //del2를 지울 것이다. 
+            //remove --> removechild --> child 즉 컨텐츠 애들만 지운다.
+            //img내부 속성 
+            del2.removeChild(document.getElementById("result")); //자식 선택자 --> 거기에 대한 아이디
+        })
+
+    </script>
+</body>
+</html>

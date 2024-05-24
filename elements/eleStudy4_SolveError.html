@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--remove 자기, removechild 자기 자식-->
+    <!--click하면 해당 요소들이 지워지는 것 : div자체를 지우고 싶은 것-->
+    <div class="c1">
+        <h3>1</h3>
+        <button class="btns" id="1">CLICK</button> <!--button마다 클릭 이벤트를 주는 것 : 버튼 반복 -->
+    </div>
+    <div class="c1">
+        <h3>2</h3>
+        <button class="btns" id="2">CLICK</button> 
+    </div>
+    <div class="c1">
+        <h3>3</h3>
+        <button class="btns" id="3">CLICK</button>
+    </div>
+    <div class="c1">
+        <h3>4</h3>
+        <button class="btns" id="4">CLICK</button>
+    </div>
+
+
+    <script>
+        //div선택 -> div id를 넣음, 근데 다 써야하니까 div class로 배열0번째를 지우는것?
+        const btns = document.getElementsByClassName("btns"); //element는 배열 type --> 배열에서 하나꺼내면 btn 엘리먼트
+        const c1 = document.getElementsByClassName("c1"); //c1역시 배열
+        for(let i=0; i<btns.length;i++) {
+            btns[i].addEventListener("click", function() {
+                //this가 엘리먼트고 --> this에서 정보를 끌고 오고 싶은 것 (this : 자기자신의 변수)
+                //a.속성명 -> 아이디 속성명을 알고싶은거면
+                //this.classList --> 이름 중 여러개
+                //this.className --> 이름
+                //this 왜하느냐? 클릭한 애를 찾아서 click한 애의 부모인 div를 찾아야함 즉, 하나만 선택해야함.(id하나 선택이랑 class배열로 선택하는 것)
+                //console.log(this.id); //this = click한 자기자신을 return한다. --> this는 document id로 가져온거랑 같다. 자기자신의 엘리먼트
+                console.log(this);
+                console.log(this.id);
+                c1[i].remove();  //지우면 length가 줄어든다. --> 지울때 length값을 유지하던지, 변경값으로 바꿔야함
+                console.log("div : " + c1.length);
+                console.log("button : " + btns.length);
+                console.log("index : " + i);
+
+            })
+        }
+        
+
+
+
+    </script>
+</body>
+</html>

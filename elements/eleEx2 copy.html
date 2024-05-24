@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="checkAll"> <!--checkAll 전체선택 : 나머지 모두 체크되는 형태 ++ 체크해제  (복습)-->
+        <button id="del">DELETE</button> <!--check된 요소 삭제 -->
+    </div>
+
+    <div class="div" id="r1" data-del-num="1">
+        <input type="checkbox" class="c1">
+        <span>mail title1</span>
+    </div>
+    <div class="div" id="r2" data-del-num="2">
+        <input type="checkbox" class="c1">
+        <span>mail title2</span>
+    </div>
+    <div class="div" id="r3" data-del-num="3">
+        <input type="checkbox" class="c1">
+        <span>mail title3</span>
+    </div>
+    <div class="div" id ="r4" data-del-num="4">
+        <input type="checkbox" class="c1">
+        <span>mail title4</span>
+    </div>
+    <div class="div" id="r5" data-del-num="5">
+        <input type="checkbox" class="c1">
+        <span>mail title5</span>
+    </div>
+    
+    <script>
+        const checkAll = document.getElementById("checkAll");
+        const c1 = document.getElementsByClassName("c1");
+        const del = document.getElementById("del");
+        const div = document.getElementsByClassName("div");
+
+        
+        //전체 체크 및 전체 체크 해제
+        checkAll.addEventListener("click", function(){
+         for(let i=0; i<c1.length;i++) {
+                if(checkAll.checked) {
+                    c1[i].checked = checkAll.checked;
+                } else {
+                    c1[i].checked = checkAll.checked;
+                }
+            }
+        })
+
+        //체크박스 해제 --> 코드 수정 및 고민 필요
+        for(let i=0; i< c1.length;i++) {
+            c1[i].addEventListener("click", function(){
+                if(c1[0].checked && c1[1].checked && c1[2].checked && c1[3].checked && c1[4].checked) {
+                    checkAll.checked = true;
+                } else {
+                    checkAll.checked = false;
+                }
+            })
+        }
+        
+
+        //check 요소 삭제 --> 느낌 살려볼만 한데
+        del.addEventListener("click", function(){
+            let tt;
+            for(let i=0; i<c1.length;i++) {
+                if (c1[i].checked) {
+                    tt = i; //참인 애들의 인덱스가 담길 거고
+                }
+            }
+            for(let j=0; j<c1.length;j++) {
+                if(tt[j] == j[i]) {
+                    div[i].remove();
+                }
+            }
+        })
+
+
+        //체크하나 해제 하면 체크박스 해제
+        // for(let i=0; i< c1.length;i++) {
+        //     c1[i].addEventListener("click", function(){
+        //         let result = c1[i].checked; //result에 담고 -> result 내부 배열 --> true / false 
+
+        //         for(j=0; c1.length ;j++) {
+        //             if(!result[j]) {
+        //                 checkAll.checked = false;
+        //             }
+        //         }
+
+        //     })
+        // }
+
+
+    </script>
+</body>
+</html>
