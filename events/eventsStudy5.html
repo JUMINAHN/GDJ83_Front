@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width : 200px;
+            height: 70px;
+            border : 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!--한번실행한건 다시 실행하지 않는다. 다시 실행하려면 조치가 필요하다. : 초기 화면에 나오는 애들은 이벤트 가능-->
+    <!--이벤트를 실제 전달하는게 아니라 클릭한 효과를 본다.-->
+    <!--부모에 클릭하면 어딜 거나 먹는다. : 근데 자식을 클릭했을때 효과를 보고 싶다. :: 영역이 맞는지 판단하는 코드가 필요하다-->
+
+    <button class="btns">click1</button>
+    <button class="btns">click2</button>
+    <div id="result">
+        <!-- <button id="b">test</button> -->
+    </div> <!--div 내부를 클릭해야 반응한다. : 즉 클릭버튼이 만들어지는 영역을 클릭하면 실행 ((내부에 속해도 클릭됨))-->
+    <!--부모한테 걸어서 자동으로 자식한테 전달되도록 : 이벤트 린?윌?-->
+    <button id="add">Add</button>
+    
+    <script>
+        const btns = document.getElementsByClassName("btns");
+        const add = document.getElementById("add");
+        const result = document.getElementById("result");
+
+                    //e.target : button 
+            //다른애일수도 있다는 것-> class/id명으로 구분 --> click했을때를 구분 --> class명이 btns인거
+            //target에 btns가 있느냐? 
+            //classList배열 -> btns가 있는지 비교 => 보다 쉬운거 class.contain 함수 사용
+            //결론적으로 생성하면 이벤트가 안먹으니까 동적으로 이벤트 위임을 통해 작동하게 한다.
+
+        //test
+        const b = document.getElementById("b");
+
+        // b.addEventListener("click", function(){ 
+        //     console.log("button");
+
+        // })
+
+
+
+        result.addEventListener("click", function(e) { //매개변수 선언해준다. 변수명 아무거나 => 클릭 관련 객체를 만들어서 넣어준다. click을 function(e)에
+            console.log(e); //안에서 정보를 꺼내볼 수 있음
+            //중첩된곳에서 자식정보 먼저 나온다.
+            //div test 둘다 클릭 - > 둘다 (자식먼저 후 부모) : 이벤트 버블링 -> 올라면서 실행
+            //실제 클릭한 애가 누구냐? 만약에 타겟했을 때 : 타겟이 자식, 빈 공간은 자기 자신
+            //target이라는 것은 실제 누구를 클릭했느냐임 : butoon.btns -> target : 실제 클릭한 타겟이 누구냐?
+            //이벤트 객체는 이벤트 리스너로 지정된 함수에 자동으로 저장된다.
+            //콜백함수 == 이벤트핸들러 ,,,,,, 추가로 이벤트 버블링 + 위임보기
+
+            //실제 타겟에 엘리먼트가 나온다. --> target은 가장 자식 : 최초이벤트 발생
+            if(e.target.classList.contains("btns")) { //e.target : button element = documet.getElemet의 결과물과 같다.
+               go();
+            }
+        });
+        //익명함수는 함수 선언 -> 쓰려면 어디선가 호출하는 코드가 필요함 --> 함수를 정의한다고 실행되는 것이 아님
+        //명명함수 -> 호출 : 함수명();
+        //익명에 매개변수 선언하면, event발생하고, event정보의 객체를 매개변수에 넣고 실행 ==> 웹브라우저
+        //익명함수 -> 호출 => 웹브라우저에서
+
+
+
+
+
+        add.addEventListener("click", function(){
+            let b = document.createElement("button");
+            b.append("click")//string까지 (객체도) -> value //현재클릭은 작동 안됨
+            b.className = "btns"; //className추가
+            result.append(b); //나중에만들어지면 이벤트를 못건다.
+        })
+        //해결을 위해 부모를 봐야한다.
+
+
+
+        //없는애한테 미리걸진 않는다.
+        for(let i =0; i < btns.length ; i++) {
+            btns[i].addEventListener("click", function() {
+                go();
+            })
+        }
+
+        function go() {
+            console.log("같은 일을 하자");
+        }
+
+    </script>
+
+</body>
+</html>

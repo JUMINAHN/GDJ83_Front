@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+
+    </div>
+    <button id="add">add</button>
+    <!-- <a href="https:/www.naver.com" id ="naver"></a> 이동하는것도 이벤트 -->
+
+    <script>
+        const add = document.getElementById("add");
+        //const btns = 
+        const result = document.getElementById("result"); //div -> result에 원하는 이벤트를 걸자
+        add.addEventListener("click", function() {  
+            let i = document.createElement("input");
+            i.type = "checkbox";
+            i.classList.add("ch");
+            result.append(i); //result안에 input -> check박스인 것
+            //checkbox클릭할 때 마다 콘솔에 무언가를 출력하고 싶음
+            //checkbox에 event를 걸어야하는데 가지고 올 element가 없음 --> 이미 나와있는 것에 걸자 : 위임
+            //body, div, butoon에 거는 것
+            //만들어지는 체크박스에 걸고 싶음 -> append되는 부모 영역에 먼저 건다.
+        })
+
+
+
+        result.addEventListener("click", function(e) { //이 이벤트를 실제 타겟으로 연결을 하자 -> 체크박스 영억을 클릭해씅ㄹ때로 바꿔주자
+            //매개변수로 받을 수 있는 변수를 선언하자~
+            //클릭해서 받는 것은 타겟이라는 변수에 저장된다.
+            //그리고 그게 체크박스가 맞는지 봐야한다.
+        
+            if(e.target.classList.contains("ch")) { //ch가 있으면 체크박스가 맞다는 것
+
+            } 
+
+        })
+    </script>
+</body>
+</html>
