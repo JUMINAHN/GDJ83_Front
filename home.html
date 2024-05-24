@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+/*지우려면 부모의 아이디를 알아야한다. check가 트루면 부모가 감싸고 있는 아이디를 알아야한다. */
+/*아예 밖에다가 let count = 0;  "a" + count --> 속성 알고 만들고 순번 즉 부모랑 data속성 div 값 같게 만들수 있다.*/
+/*계속 고민하는 과정*/
 
 
     </style>
@@ -13,24 +16,60 @@
     <!--To do list :: 과제 -->
     <div>
         <!--input 할일 적고 버튼 클릭하면 (체크박스) (인풋 형태로 ) 등록 -->
-        <input type="text">
-        <button>Add</button>
+        <input type="text" id="maini">
+        <button id="btn">Add</button>
     </div>
 
     <div>
         <div>
-            <button>휴지통</button> <!--휴지통 누르면 체크된 내용 삭제-->
+            <button id="btn2">휴지통</button> <!--휴지통 누르면 체크된 내용 삭제-->
         </div>
 
         <!--check하면 글에 작대기 : css 적용-->
 
-        <div>
-            <input type="checkbox" name="" id="">
-            <span>오늘은 집에서 게임하기</span>
+        <div id = "screeni">
+            <!-- <input type="checkbox" name="" id="">
+            <span>오늘은 집에서 게임하기</span> -->
         </div>
 
     </div>
 
+    <script>
+        const maini = document.getElementById("maini");
+        const btn = document.getElementById("btn");
+        const screeni = document.getElementById("screeni")
+
+        let count;
+        //checkbox 생성 --> div를 담아주는 것임 배열
+        btn.addEventListener("click", function(){
+            const div1 = document.createElement("div");
+            const input1 = document.createElement("input");
+            input1.type = "checkbox";
+            const span1 = document.createElement("span");
+
+            let txt = maini.value;
+            screeni.append(div1); //scrini값을 반환하지 않으면 재사용이 불가 
+            div1.append(input1);
+            div1.append(span1);
+            span1.append(txt);
+        })
+        //내용을 배열에 담아야 겠지
+
+
+        //휴지통 버리기 --> screeni list 안에 
+        //input1으로 생성한거 지우기 
+        const btn2 = document.getElementById("btn2");
+        btn2.addEventListener("click", function(){
+            //div안에 
+
+        })
+
+        //checkbox -> check 된 것 -> function(e)
+      
+
+
+
+    </script>
 
 
 </body>

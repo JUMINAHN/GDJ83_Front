@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input onclick="on()" type="checkbox" value ="1" name = "ch" id="checkAll"> 
+    <input type="checkbox" value ="2" name = "ch" class="box">
+    <input type="checkbox" value ="3" name = "ch" class="box">
+    <input type="checkbox" value = "4" name = "ch" class="box">
+    <input type="checkbox" value = "5" name = "ch" class="box">
+    <button onclick="on()">CLICK</button>
+    <script>
+        const all = document.getElementById("checkAll")
+        const check = document.getElementsByClassName("box");
+
+        let count = 0;
+        for(let i =0; i < check.length;i++) {
+            check[i].addEventListener("click", function() {
+                if(check[i].checked) {  //         if (check[0].checked && check[1].checked && check[2].checked && check[3].checked)
+                    count++; //check된 부분의 숫자가 담겨
+                }
+                if(count <= 4) { //한번 돌면 안된다..? ? 
+                    all.checked = false;
+                } //else -> 왜 적용안되니 
+            })
+        }
+
+        
+        function on() {
+            if(all.checked) {
+                for (let i=0; i< check.length; i++) {
+                check[i].checked = true;
+            }} else {
+                for (let i=0; i< check.length; i++) {
+                check[i].checked = false;
+            }}
+        }
+
+    </script>
+</body>
+</html>
